@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button onclick="display()" name="CLICK" value="CLICK"></button>
+<p id="displaying"></p>
+<p id="dynamicone"></p>
+<p id="dynamictwo"></p>
+<p id="data"></p>
+<script>
+
+    function display() {
+        document.getElementById("displaying").innerHTML = "Button has been clicked";
+    }
+
+    var name = 10;
+    document.getElementById("dynamicone").innerHTML = name;
+    var name = "Maggie Mwaura";
+    document.getElementById("dynamictwo").innerHTML = name;
+
+
+    //Custom events
+    var event = new CustomEvent(
+        "highlight",
+        {
+            detail: {
+                message: "Highlighted"
+            },
+            bubbles: true,
+            cancelable: true
+        }
+    );
+    document.getElementById("data").dispatchEvent(event);
+    document.addEventListener("newMessage", newMessageHandler, false);
+
+</script>
+</body>
+</html>
