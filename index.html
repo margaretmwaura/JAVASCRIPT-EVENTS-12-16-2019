@@ -37,6 +37,28 @@
     document.getElementById("data").dispatchEvent(event);
     document.addEventListener("newMessage", newMessageHandler, false);
 
+    //Promises
+    var promise = new Promise (function (resolve, reject) {
+        var num1 = 2;
+        var num2 = 5
+        var numtotal = num1 + num2;
+        var multiply = num1 * num2;
+        if (numtotal == multiply) {
+            resolve ();
+        } else {
+            reject ();
+        }
+    });
+
+    promise.then (function ()
+    {
+        console.log ("Your operations are right");
+    }).
+    catch (function () {
+        console.log ("Your operations are wrong");
+    });
+
+
 </script>
 </body>
 </html>
